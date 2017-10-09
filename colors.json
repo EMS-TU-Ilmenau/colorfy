@@ -1,0 +1,21 @@
+{
+    "colors" : {
+        "hihi" : {
+            "space": "rgb",
+            "def": [1, 0.5, 0.75]
+            }
+        ,
+        "hoho" : {
+            "space": "rgb",
+            "def": [0.5, 1, 0.5]
+        }
+    },    
+    "colorbars": {
+        "trololo": {
+            "def": ["hihi", "hoho"]
+        },
+        "ololort": {
+            "def": ["hoho", "hihi"]
+        }
+    }
+}
