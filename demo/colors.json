@@ -1,21 +1,19 @@
 {
     "colors" : {
-        "hihi" : {
+        "col1" : {
             "space": "rgb",
             "def": [1, 0.5, 0.75]
             }
         ,
-        "hoho" : {
+        "col2" : {
             "space": "rgb",
             "def": [0.5, 1, 0.5]
         }
-    },    
+    },
     "colorbars": {
-        "trololo": {
-            "def": ["hihi", "hoho"]
-        },
-        "ololort": {
-            "def": ["hoho", "hihi"]
+        "triple": {
+            "def": ["col1", "col2", "col1"],
+            "pos": [0, 0.2, 1]
         }
     }
 }
