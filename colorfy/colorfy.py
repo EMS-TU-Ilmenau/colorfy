@@ -139,14 +139,14 @@ class ColorObject:
 
         self._conv2rgb = {
             'rgb': self._eye,
-            'cmyk': self._rgb2cmyk,
-            'rgb255': self._rgb2rgb255,
+            'cmyk': self._cmyk2rgb,
+            'rgb255': self._rgb2552rgb,
         }
 
         self._rgb2conv = {
             'rgb': self._eye,
-            'cmyk': self._cmyk2rgb,
-            'rgb255': self._rgb2552rgb,
+            'cmyk': self._rgb2cmyk,
+            'rgb255': self._rgb2rgb255,
         }
 
     def _tplToString(self, tplX):
@@ -170,7 +170,7 @@ class ColorObject:
         """
         identity function for convenience
         """
-        return (args[0] if len(args) == 1 else args)
+        return tuple(args[0] if len(args) == 1 else args)
 
     def _cmyk2rgb(self, tplDef):
         c, m, y, k = tplDef
@@ -180,7 +180,7 @@ class ColorObject:
         return (r, g, b)
 
     def _rgb2552rgb(self, tplDef):
-        return (cc / 255.0 for cc in tplDef)
+        return tuple(float(cc) / 255.0 for cc in tplDef)
 
     def _rgb2cmyk(self, tplDef):
         r, g, b = tplDef
@@ -199,10 +199,10 @@ class ColorObject:
         y = (y - min_cmy)
         k = min_cmy
 
-        return (c, m, y, k)
+        return tuple(c, m, y, k)
 
     def _rgb2rgb255(self, tplDef):
-        return (int(cc * 255.0) for cc in tplDef)
+        return tuple(int(cc * 255.0) for cc in tplDef)
 
 
 class Color(ColorObject):
