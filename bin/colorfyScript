@@ -1,0 +1,64 @@
+#!/usr/bin/env python3
+
+# This file is part of colorfy.
+
+# colorfy is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+
+# colorfy is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+
+# You should have received a copy of the GNU General Public License
+# along with colorfy. If not, see <http://www.gnu.org/licenses/>.
+
+if __name__ == "__main__":
+    import colorfy
+    import argparse
+
+    parser = argparse.ArgumentParser(
+        description=r"""Script that reads color specifications from a JSON
+    file and exports these definitions consistently in multiple formats."""
+    )
+
+    parser.add_argument(
+        '-p',
+        '--path',
+        action="store",
+        help='path to the *.JSON input file without the file extension',
+        type=str
+    )
+
+    parser.add_argument(
+        '-f',
+        '--format',
+        action="store",
+        help='output formats. [[TeX], Python, CSS]',
+        nargs='+',
+        default='TeX',
+        type=str
+    )
+
+    parser.add_argument(
+        '-o',
+        '--output',
+        action="store",
+        help='name of the output file without the file extension',
+        type=str
+    )
+
+    args = parser.parse_args()
+
+    # parse arguments
+    inPath = args.path
+    outputs = args.format
+    outPath = args.output
+
+    # create the workspace
+    w = Workspace(inPath)
+
+    # export everything
+    w.export(outputs, outPath)
