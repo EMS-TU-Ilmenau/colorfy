@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-
 # This file is part of colorfy.
 
 # colorfy is free software: you can redistribute it and/or modify
@@ -17,7 +15,6 @@
 
 
 import json
-
 
 class Workspace:
     """
@@ -351,51 +348,3 @@ class ColorMap(ColorObject):
         }
 
         return self._outWrapper[destination] % (dictOut)
-
-
-if __name__ == "__main__":
-    import argparse
-
-    parser = argparse.ArgumentParser(
-        description=r"""Script that reads color specifications from a JSON
-    file and exports these definitions consistently in multiple formats."""
-    )
-
-    parser.add_argument(
-        '-p',
-        '--path',
-        action="store",
-        help='path to the *.JSON input file without the file extension',
-        type=str
-    )
-
-    parser.add_argument(
-        '-f',
-        '--format',
-        action="store",
-        help='output formats. [[TeX], Python, CSS]',
-        nargs='+',
-        default='TeX',
-        type=str
-    )
-
-    parser.add_argument(
-        '-o',
-        '--output',
-        action="store",
-        help='name of the output file without the file extension',
-        type=str
-    )
-
-    args = parser.parse_args()
-
-    # parse arguments
-    inPath = args.path
-    outputs = args.format
-    outPath = args.output
-
-    # create the workspace
-    w = Workspace(inPath)
-
-    # export everything
-    w.export(outputs, outPath)
