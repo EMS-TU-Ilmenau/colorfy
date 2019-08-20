@@ -58,7 +58,7 @@ if __name__ == "__main__":
     outPath = args.output
 
     # create the workspace
-    w = Workspace(inPath)
+    w = colorfy.Workspace(inPath)
 
     # export everything
     w.export(outputs, outPath)
