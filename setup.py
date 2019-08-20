@@ -40,10 +40,11 @@ except ImportError:
     raise
 
 # global package constants
-packageName     = 'colory'
-packageVersion  = '0.1'              # provide a version tag as fallback
+packageName     = 'colorfy'
+packageVersion  = '0.0'              # provide a version tag as fallback
 fullVersion     = packageVersion
-strVersionFile  = "%s/version.py" %(packageName)
+#strVersionFile  = "%s/version.py" %(packageName)
+strVersionFile  = ".version"
 
 VERSION_PY = """
 # -*- coding: utf-8 -*-
@@ -199,7 +200,7 @@ if __name__ == '__main__':
             'Topic :: Scientific/Engineering',
         ],
         packages=['colorfy'],
-        scripts=['bin/colorfyScript'],
+        scripts=['bin/colorfy'],
         setup_requires=setupRequires,
         install_requires=installRequires,
 
