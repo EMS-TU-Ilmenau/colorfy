@@ -41,10 +41,10 @@ except ImportError:
 
 # global package constants
 packageName     = 'colorfy'
-packageVersion  = '0.0'              # provide a version tag as fallback
+packageVersion  = '0.0.2'              # provide a version tag as fallback
 fullVersion     = packageVersion
-#strVersionFile  = "%s/version.py" %(packageName)
-strVersionFile  = ".version"
+strVersionFile  = "%s/version.py" %(packageName)
+#strVersionFile  = ".version"
 
 VERSION_PY = """
 # -*- coding: utf-8 -*-
