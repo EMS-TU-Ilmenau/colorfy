@@ -58,7 +58,11 @@ if __name__ == "__main__":
     outPath = args.output
 
     # create the workspace
-    w = colorfy.Workspace(inPath)
+    w = colorfy.Workspace(inPath) # before: w=Workspace(inPath)
+                                # raised: "Workspace not defined"
+                                # now raises: "FileNotFoundError"
+                                # try installing colorfy 0.0.1 = Workspace error
+                                # then colorfy 0.0.2 = FileNotFoundError
 
     # export everything
     w.export(outputs, outPath)
