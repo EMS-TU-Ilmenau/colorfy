@@ -366,6 +366,7 @@ if __name__ == "__main__":
         '--path',
         action="store",
         help='path to the *.JSON input file without the file extension',
+        required=True,
         type=str
     )
 
@@ -384,6 +385,7 @@ if __name__ == "__main__":
         '--output',
         action="store",
         help='name of the output file without the file extension',
+        required=True,
         type=str
     )
 
