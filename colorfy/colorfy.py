@@ -52,8 +52,8 @@ class Workspace:
             )
 
             self._lstColorMaps = self._parseColorMaps(
-                        self._rawDict['colorbars']
-                    )
+                self._rawDict['colorbars']
+            )
 
             self._dictFileNames = {
                 'CSS': '.css',
@@ -159,11 +159,11 @@ class ColorObject:
     """
     conversion functions. rgb is the connecting node in the conversion graph:
 
-    RGB------\        /----RGB
-              \      /
+    RGB------|        |----RGB
+              |      |
     RGB255------RGB--------RGB255
-              /      \
-    CMYK-----/        \----CMYK
+              |      |
+    CMYK-----|        |----CMYK
     """
 
     def _eye(self, *args):
@@ -375,7 +375,7 @@ if __name__ == "__main__":
         action="store",
         help='output formats. [[TeX], Python, CSS]',
         nargs='+',
-        default='TeX',
+        default=['TeX'],
         type=str
     )
 
