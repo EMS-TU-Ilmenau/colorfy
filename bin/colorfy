@@ -53,16 +53,12 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     # parse arguments
-    inPath = args.path
+    inPath = args.input
     outputs = args.format
     outPath = args.output
 
     # create the workspace
-    w = colorfy.Workspace(inPath) # before: w=Workspace(inPath)
-                                # raised: "Workspace not defined"
-                                # now raises: "FileNotFoundError"
-                                # try installing colorfy 0.0.1 = Workspace error
-                                # then colorfy 0.0.2 = FileNotFoundError
+    w = colorfy.Workspace(inPath) 
 
     # export everything
     w.export(outputs, outPath)
