@@ -35,8 +35,10 @@ class Workspace:
         path
     ):
         self._path = path
+        if os.path.isfile(self._path) != True:
+            sys.exit("Sourcefile not found.")
         try:
-            open(self._path + '.json')
+            open(self._path)
         except (FileNotFoundError):
             raise (FileNotFoundError)
         else:
