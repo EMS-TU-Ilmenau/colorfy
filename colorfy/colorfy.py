@@ -14,6 +14,8 @@
 # along with colorfy. If not, see <http://www.gnu.org/licenses/>.
 
 import json
+import os
+import sys
 
 class Workspace:
     """
@@ -36,13 +38,10 @@ class Workspace:
     ):
         self._path = path
         if os.path.isfile(self._path) != True:
-            sys.exit("Sourcefile not found.")
-        try:
-            open(self._path)
-        except (FileNotFoundError):
-            raise (FileNotFoundError)
+            sys.exit("Inputfile not found.")
+
         else:
-            data_file = open(self._path + '.json')
+            data_file = open(self._path)
             self._rawDict = json.load(data_file)
 
             self._lstColors, self._dictColorNames = self._parseColors(
@@ -98,17 +97,10 @@ class Workspace:
         return res
 
     def export(self, lstDests, path):
-
         # iterate through all destination formats and try to write them
         for dd in lstDests:
-            try:
-                f = open(path + self._dictFileNames[dd], 'w')
-            except IOError:
-                print(
-                    "Could not write to file "
-                    + path + self._dictFileNames[dd]
-                )
-            else:
+            os.makedirs(os.path.dirname(path), exist_ok=True)
+            with open(path + self._dictFileNames[dd], 'w') as f:
                 # first iterate through and write the colors
                 for cc in self._lstColors:
                     f.write(cc.out(dd) + '\n')
@@ -116,9 +108,6 @@ class Workspace:
                 # write colorbars after the colors
                 for ccbb in self._lstColorMaps:
                     f.write(ccbb.out(dd) + '\n')
-
-                f.close()
-
 
 class ColorObject:
     """
