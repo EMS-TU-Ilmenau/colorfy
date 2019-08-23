@@ -25,11 +25,11 @@ if __name__ == "__main__":
     )
 
     parser.add_argument(
-        '-p',
-        '--path',
+        '-i',
+        '--input',
         action="store",
-        help='path to the *.JSON input file without the file extension',
-        type=str
+        help='path to the JSON input file',
+        type=str, required=True
     )
 
     parser.add_argument(
@@ -47,7 +47,7 @@ if __name__ == "__main__":
         '--output',
         action="store",
         help='name of the output file without the file extension',
-        type=str
+        type=str, required=True
     )
 
     args = parser.parse_args()
