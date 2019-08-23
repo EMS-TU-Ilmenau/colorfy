@@ -172,8 +172,8 @@ if __name__ == '__main__':
     # everything's set. Fire in the hole.
     setup(
         author='Sebastian Semper',
-        version=packageVersion,
         name=packageName,
+        version=packageVersion,
         description=('Script that reads color specifications from a JSON file '+
             'and exports these definitions consistently in multiple formats.'),
         long_description=longDescription,
