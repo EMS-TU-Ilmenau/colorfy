@@ -177,7 +177,7 @@ if __name__ == '__main__':
         description=('Script that reads color specifications from a JSON file '+
             'and exports these definitions consistently in multiple formats.'),
         long_description=longDescription,
-        url='https://ems-tu-ilmenau.github.io/colorfy/',
+        url='https://github.com/EMS-TU-Ilmenau/colorfy',
         license='GNU General Public License 3',
         classifiers=[
             'Development Status :: 1 - Planning',
