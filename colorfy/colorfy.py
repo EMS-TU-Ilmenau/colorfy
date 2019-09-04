@@ -99,7 +99,9 @@ class Workspace:
     def export(self, lstDests, path):
         # iterate through all destination formats and try to write them
         for dd in lstDests:
-            os.makedirs(os.path.dirname(path), exist_ok=True)
+            if "/" in path:
+                os.makedirs(os.path.dirname(path), exist_ok=True)
+            
             with open(path + self._dictFileNames[dd], 'w') as f:
                 # first iterate through and write the colors
                 for cc in self._lstColors:
